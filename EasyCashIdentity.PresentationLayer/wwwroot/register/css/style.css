@@ -102,19 +102,7 @@ input[type="text"], input[type="password"], input[type="email"]{
 	color: #fff;
 	font-family: 'Quicksand', sans-serif;
 }
-input[type="text"]{
-	background: url("../images/user.png") no-repeat 382px 11px;
-	background-size: 25px;
-}
-input[type="email"] {
-	background: url("../images/e-mail.png") no-repeat 382px 11px;
-	background-size: 25px;
-}
 
-input[type="password"] {
-	background: url("../images/password.png") no-repeat 382px 11px;
-	background-size: 25px;
-}
 
 ul.agileinfotickwthree {
 	list-style: none;

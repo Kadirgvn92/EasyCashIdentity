@@ -27,13 +27,22 @@ public class RegisterController : Controller
                 UserName = appUserRegisterDto.Username,
                 Name = appUserRegisterDto.Name,
                 Email = appUserRegisterDto.Email,
-                Surname = appUserRegisterDto.Surname
+                Surname = appUserRegisterDto.Surname,
+                City = "Bursa",
+                District = "Marmara",
+                ImageUrl = "image"
             };
 
             var result = await _userManager.CreateAsync(appUser, appUserRegisterDto.Password);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index","ConfirmMail");
+            }else
+            {
+                foreach(var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
             }
         }
 
