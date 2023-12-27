@@ -2,6 +2,9 @@
 using EasyCashIdentity.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using MailKit.Net.Smtp;
+using EasyCashIdentity.PresentationLayer.Mail;
 
 namespace EasyCashIdentity.PresentationLayer.Controllers;
 public class RegisterController : Controller
@@ -23,6 +26,7 @@ public class RegisterController : Controller
         if(ModelState.IsValid)
         {
             Random random = new Random();
+            int code = random.Next(100000, 1000000);
 
             AppUser appUser = new AppUser()
             {
@@ -33,14 +37,35 @@ public class RegisterController : Controller
                 City = "Bursa",
                 District = "Marmara",
                 ImageUrl = "image",
-                ConfirmCode = random.Next(100000, 1000000)
+                ConfirmCode = code
             };
 
             var result = await _userManager.CreateAsync(appUser, appUserRegisterDto.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index","ConfirmMail");
-            }else
+                MimeMessage mimeMessage = new MimeMessage();
+                MailboxAddress mailboxAddressFrom = new MailboxAddress("Easy Cash Admin", "kadirgvn92@gmail.com");
+                MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUser.Email);
+
+                mimeMessage.From.Add(mailboxAddressFrom);
+                mimeMessage.To.Add(mailboxAddressTo);
+
+                var bodyBuilder = new BodyBuilder();
+                bodyBuilder.TextBody = "Kayıt işlemi gerçekleştirmek için Onay Kodunuz : " + code;
+                mimeMessage.Body = bodyBuilder.ToMessageBody();
+
+                mimeMessage.Subject = "Easy Cash Onay Kodu";
+
+                SmtpClient smtpClient = new SmtpClient();
+				smtpClient.Connect("smtp.gmail.com", 587, false);
+				smtpClient.Authenticate("kadirgvn92@gmail.com", MailPassword.Password);
+
+				smtpClient.Send(mimeMessage);
+				smtpClient.Disconnect(true);
+
+				return RedirectToAction("Index","ConfirmMail");
+            }
+            else
             {
                 foreach(var item in result.Errors)
                 {
