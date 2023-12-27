@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/EasyCashIdentity.PresentationLayer/Models/MailPassword.cs
+/EasyCashIdentity.PresentationLayer/Mail/MailPassword.cs
+/EasyCashIdentity.PresentationLayer/Mail/MailPassword.cs
+/EasyCashIdentity.PresentationLayer/Mail/MailPassword.cs
