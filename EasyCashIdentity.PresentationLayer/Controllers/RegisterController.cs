@@ -22,7 +22,9 @@ public class RegisterController : Controller
     {
         if(ModelState.IsValid)
         {
-            AppUser  appUser = new AppUser()
+            Random random = new Random();
+
+            AppUser appUser = new AppUser()
             {
                 UserName = appUserRegisterDto.Username,
                 Name = appUserRegisterDto.Name,
@@ -30,7 +32,8 @@ public class RegisterController : Controller
                 Surname = appUserRegisterDto.Surname,
                 City = "Bursa",
                 District = "Marmara",
-                ImageUrl = "image"
+                ImageUrl = "image",
+                ConfirmCode = random.Next(100000, 1000000)
             };
 
             var result = await _userManager.CreateAsync(appUser, appUserRegisterDto.Password);
