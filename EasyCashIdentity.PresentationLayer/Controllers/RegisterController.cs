@@ -63,6 +63,8 @@ public class RegisterController : Controller
 				smtpClient.Send(mimeMessage);
 				smtpClient.Disconnect(true);
 
+                TempData["Mail"] = appUserRegisterDto.Email;
+
 				return RedirectToAction("Index","ConfirmMail");
             }
             else
