@@ -1,18 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EasyCashIdentity.EntityLayer.Concrete;
+using EasyCashIdentity.PresentationLayer.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EasyCashIdentity.PresentationLayer.Controllers;
 public class ConfirmMailController : Controller
 {
-	[HttpGet]
+	private readonly UserManager<AppUser> _userManager;
+
+    public ConfirmMailController(UserManager<AppUser> userManager)
+    {
+        _userManager = userManager;
+    }
+
+    [HttpGet]
 	public IActionResult Index()
 	{
 		var value = TempData["Mail"];
-		ViewBag.v = value + "aa";
+		ViewBag.v = value;
 		return View();
 	}
 	[HttpPost]
-	public IActionResult Index(ConfirmMailController confirmMailController)
+	public async Task<IActionResult> Index(ConfirmMailViewModel confirmMailViewModel)
 	{
-		return View();
+		var user = await _userManager.FindByEmailAsync(confirmMailViewModel.Mail);
+		if(user.ConfirmCode == confirmMailViewModel.ConfirmCode)
+		{
+			return RedirectToAction("Index","MyProfile");
+		}
+        return View();
 	}
 }
