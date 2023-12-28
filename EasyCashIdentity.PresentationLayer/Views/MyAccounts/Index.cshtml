@@ -1,10 +1,82 @@
-﻿
+﻿@model AppUserEditDto
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/MyProfile/Index.cshtml";
+    Layout = "~/Views/CustomerLayout/Index.cshtml";
 }
-<div class="content-wrapper">
 
-    <h1 class="ml-4">Index</h1>
+<div class="content-wrapper mt-0">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Easy Cash Müşteri Paneli</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active"> Müşteri Paneli</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- jquery validation -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Profil Bilgileri Güncelleme Sayfası</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form id="quickForm" method="post">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Adınız</label>
+                                    <input type="text" asp-for="Name" class="form-control"  placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Soyadınız</label>
+                                    <input type="text" asp-for="Surname" class="form-control"  placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">İlçe</label>
+                                    <input type="text" asp-for="District" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Şehir</label>
+                                    <input type="text" asp-for="City" class="form-control"  placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Telefon Numaranız</label>
+                                    <input type="text" asp-for="PhoneNumber" class="form-control"  placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" asp-for="Email" class="form-control" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Şifre</label>
+                                    <input type="password" asp-for="Password" class="form-control"  placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Şifre Tekrar</label>
+                                    <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-success">Bilgilerimi Güncelle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-

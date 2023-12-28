@@ -11,16 +11,13 @@
 
 <body class="sidebar-mini layout-fixed layout-navbar-fixed">
     <div class="wrapper">
-
         @await Component.InvokeAsync("_CustomerLayoutNavbarPartial");
-
 
         @await Component.InvokeAsync("_CustomerLayoutSidebarPartial");
 
         @RenderBody()
 
         @await Component.InvokeAsync("_CustomerLayoutFooterPartial");
-
     </div>
 
     @await Component.InvokeAsync("_CustomerLayoutScriptPartial");
