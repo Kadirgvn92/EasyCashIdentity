@@ -1,0 +1,60 @@
+﻿@model SendMoneyForCustomerAccountProcessDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/CustomerLayout/Index.cshtml";
+}
+
+<div class="content-wrapper mt-0">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Easy Cash</h1>
+                    <br />
+                    <h2>Para Transfer Sayfası</h2>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active"> Para Transferi</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- jquery validation -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h2 class="card-title">Lütfen para tranferi yapmak istediğiniz kişinin bilgilerini eksiksiz giriniz</h2>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form id="quickForm" method="post">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Hesap Numarası</label>
+                                    <input type="text" asp-for="ReceiverAccountNumber" class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Miktar</label>
+                                    <input type="text" asp-for="Amount" class="form-control">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-success">Para Tranferi Gerçekleştir</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

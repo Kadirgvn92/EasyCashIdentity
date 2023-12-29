@@ -25,4 +25,8 @@
     <ProjectReference Include="..\EasyCashIdentity.EntityLayer\EasyCashIdentity.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EntityFramework\" />
+  </ItemGroup>
+
 </Project>

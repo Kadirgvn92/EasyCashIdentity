@@ -7,6 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EasyCashIdentity.BusinessLayer.Abstract;
-internal interface ICustomerAccountProcessService : IGenericService<CustomerAccountProcess>
+public interface ICustomerAccountProcessService : IGenericService<CustomerAccountProcess>
 {
 }
