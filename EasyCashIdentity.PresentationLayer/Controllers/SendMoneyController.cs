@@ -37,6 +37,15 @@ public class SendMoneyController : Controller
         sendMoneyForCustomerAccountProcessDto.ProcessType = "Havale";
         sendMoneyForCustomerAccountProcessDto.ReceiverID = receiverAccountNumberID;
 
+        var values = new CustomerAccountProcess();
+        values.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+        values.SenderID = 6;
+        values.ReceiverID = receiverAccountNumberID;
+        values.ProcessType = "Havale";
+        values.Amount = sendMoneyForCustomerAccountProcessDto.Amount;
+
+        _customerAccountProcessService.TInsert(values);
+
         return RedirectToAction("Index", "Deneme");
     }
 }
