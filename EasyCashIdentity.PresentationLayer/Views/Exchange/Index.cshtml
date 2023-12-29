@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/CustomerLayout/Index.cshtml";
+}
+
+<section class="content-wrapper mt-1">
+    <div class="container-fluid">
+        <div>
+            <br />
+            <h2>@DateTime.Now.ToShortDateString() - Döviz Kurları</h2>
+            <br />
+        </div>
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@ViewBag.UsdToTry</h3>
+
+                        <p>Dolar - TL Kuru</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fi fi-br-lira-sign"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>@ViewBag.GbpToTry</h3>
+
+                        <p>Pound - TL Kuru</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fi fi-br-pound"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>@ViewBag.EurToTry</h3>
+
+                        <p>Euro - TL Kuru</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fi fi-br-euro"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@ViewBag.UsdToEur</h3>
+
+                        <p>Dolar - Euro Kuru</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fi fi-br-dollar"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
