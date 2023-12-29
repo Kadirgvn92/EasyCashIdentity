@@ -18,8 +18,9 @@ public class SendMoneyController : Controller
     }
 
     [HttpGet]
-    public IActionResult Index()
+    public IActionResult Index(string mycurrency)
     {
+        ViewBag.mycurrency = mycurrency;    
         return View();
     }
     [HttpPost]
@@ -47,6 +48,4 @@ public class SendMoneyController : Controller
 
         return RedirectToAction("Index", "Deneme");
     }
-    [HttpGet]
-    public IActionResult 
 }
