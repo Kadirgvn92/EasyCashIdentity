@@ -31,7 +31,7 @@
                 <!-- left column -->
                 <div class="col-md-12">
                     <!-- jquery validation -->
-                    <div class="card card-primary">
+                    <div class="card card-secondary">
                         <div class="card-header">
                             <h2 class="card-title">Lütfen para tranferi yapmak istediğiniz kişinin bilgilerini eksiksiz giriniz</h2>
                         </div>
@@ -47,9 +47,14 @@
                                     <label for="exampleInputEmail1">Miktar</label>
                                     <input type="text" asp-for="Amount" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Açıklama</label>
+                                    <textarea row="5" asp-for="Description" class="form-control"></textarea>
+                                </div> 
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-success">Para Tranferi Gerçekleştir</button>
+                                <button type="submit" class="btn btn-success">Tranfer Gerçekleştir</button>
+                                <button type="button" class="btn btn-secondary">Vazgeç</button>
                             </div>
                         </form>
                     </div>
