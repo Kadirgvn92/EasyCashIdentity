@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EasyCashIdentity.DataAccessLayer.EntityFramework;
-public class EfCustomerAccountProcessDal : GenericRepository<CustomerAccountProcess>, ICustomerAccountProcessDal
+public class EfCustomerAccountDal : GenericRepository<CustomerAccount>, ICustomerAccountDal
 {
-    public List<CustomerAccountProcess> MyLastProcess(int id)
+    public List<CustomerAccount> GetCustomerAccountList(int id)
     {
         using var context = new Context();
-        var values = context.CustomerAccountProcesses.Where(x => x.ReceiverID == id || x.SenderID == id).ToList();
+        var values = context.CustomerAccounts.Where(x => x.AppUserID == id).ToList();
         return values;
     }
 }

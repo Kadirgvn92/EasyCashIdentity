@@ -8,4 +8,5 @@ using System.Threading.Tasks;
 namespace EasyCashIdentity.DataAccessLayer.Abstract;
 public interface ICustomerAccountProcessDal : IGenericDal<CustomerAccountProcess>
 {
+    List<CustomerAccountProcess> MyLastProcess(int id);
 }

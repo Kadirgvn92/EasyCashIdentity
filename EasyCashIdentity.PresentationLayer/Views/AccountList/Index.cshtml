@@ -1,0 +1,100 @@
+﻿@model List<CustomerAccount>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/CustomerLayout/Index.cshtml";
+    int count = 0;
+}
+
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+
+<div class="content-wrapper mt-0">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>TL Hesaplarım</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Projects</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row mb-2">
+            <div class="col-sm-8">
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">TL Hesaplarım</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped projects">
+                            <thead>
+                                <tr>
+                                    <th style="width: 1%">
+                                        #
+                                    </th>
+                                    <th style="width: 40%">
+                                        Hesap Bilgilerim
+                                    </th>
+                                    <th style="width: 20%">
+                                        Bakiyem
+                                    </th>
+                                    <th style="width: 20%" class="text-center">
+                                        Kullanılabilir Bakiye
+                                    </th>
+                                    <th style="width: 20%">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>
+                                            @count
+                                        </td>
+                                        <td>
+                                            <a>
+                                                Hesap Numarası : @item.CustomerAccountNumber
+                                            </a>
+                                            <br />
+                                            <small>
+                                                @item.BankBranch
+                                            </small>
+                                        </td>
+                                        <td>
+                                            @item.CustomerAccountBalance ₺
+                                        </td>
+                                        <td class="project-state">
+                                            @item.CustomerAccountBalance ₺
+                                        </td>
+                                        <td class="project-actions text-right">
+                                            <a class="btn btn-primary" href="#">
+                                                <i class="fi fi-bs-share nav-icon"></i> &nbsp;
+                                                <span>IBAN Paylaş </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>

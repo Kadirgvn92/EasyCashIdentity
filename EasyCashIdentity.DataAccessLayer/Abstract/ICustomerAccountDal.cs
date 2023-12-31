@@ -8,4 +8,5 @@ using System.Threading.Tasks;
 namespace EasyCashIdentity.DataAccessLayer.Abstract;
 public interface ICustomerAccountDal : IGenericDal<CustomerAccount>
 {
+    List<CustomerAccount> GetCustomerAccountList(int id);
 }

@@ -37,6 +37,12 @@ public class CustomerAccountProcessManager : ICustomerAccountProcessService
        _customerAccountProcessDal.Insert(Entity);
     }
 
+    public List<CustomerAccountProcess> TMyLastProcess(int id)
+    {
+        return _customerAccountProcessDal.MyLastProcess(id);
+
+    }
+
     public void TUpdate(CustomerAccountProcess Entity)
     {
         _customerAccountProcessDal.Update(Entity);

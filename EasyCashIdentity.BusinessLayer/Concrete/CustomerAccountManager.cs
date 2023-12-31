@@ -27,6 +27,11 @@ public class CustomerAccountManager : ICustomerAccountService
        return _customerAccountDal.GetByID(id);
     }
 
+    public List<CustomerAccount> TGetCustomerAccountList(int id)
+    {
+        return _customerAccountDal.GetCustomerAccountList(id);
+    }
+
     public List<CustomerAccount> TGetList()
     {
        return _customerAccountDal.GetList();
